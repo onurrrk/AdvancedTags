@@ -67,18 +67,17 @@ public class UpdateChecker implements Listener {
             connection.setReadTimeout(5000);
 
             if (connection.getResponseCode() == 200) {
-                InputStreamReader reader = new InputStreamReader(connection.getInputStream());
-                JsonArray jsonArray = new JsonParser().parse(reader).getAsJsonArray();
-                
-                if (jsonArray.size() > 0) {
-                    JsonObject latestRelease = jsonArray.get(0).getAsJsonObject();
-                    latestVersion = latestRelease.get("version_number").getAsString();
+                try (InputStreamReader reader = new InputStreamReader(connection.getInputStream())) {
+                    JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
                     
-                    updateAvailable = isNewerVersion(currentVersion, latestVersion);
-                    reader.close();
-                    return updateAvailable;
+                    if (jsonArray.size() > 0) {
+                        JsonObject latestRelease = jsonArray.get(0).getAsJsonObject();
+                        latestVersion = latestRelease.get("version_number").getAsString();
+                        
+                        updateAvailable = isNewerVersion(currentVersion, latestVersion);
+                        return updateAvailable;
+                    }
                 }
-                reader.close();
             }
         } catch (Exception ignored) {}
         return false;
