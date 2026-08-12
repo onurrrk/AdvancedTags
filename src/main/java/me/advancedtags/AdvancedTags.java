@@ -16,6 +16,7 @@ import me.advancedtags.core.TagManager;
 import me.advancedtags.hook.TagPlaceholder;
 import me.advancedtags.menu.MenuListener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bstats.bukkit.Metrics;
 
 public class AdvancedTags extends JavaPlugin {
     private TagManager tagManager;
