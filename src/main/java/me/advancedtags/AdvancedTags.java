@@ -25,8 +25,9 @@ public class AdvancedTags extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        int pluginId = xxxxxx;
+        int pluginId = 33319;
         Metrics metrics = new Metrics(this, pluginId);
+        
         saveDefaultConfig();
         this.messageManager = new MessageManager(this);
         this.tagManager = new TagManager(this);
