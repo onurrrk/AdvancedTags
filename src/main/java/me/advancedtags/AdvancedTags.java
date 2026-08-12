@@ -9,6 +9,7 @@
 package me.advancedtags;
 
 import me.advancedtags.command.AdminCommand;
+import me.advancedtags.utils.UpdateChecker;
 import me.advancedtags.command.UnvanCommand;
 import me.advancedtags.core.MessageManager;
 import me.advancedtags.core.StorageManager;
@@ -27,6 +28,8 @@ public class AdvancedTags extends JavaPlugin {
     public void onEnable() {
         int pluginId = 33319;
         Metrics metrics = new Metrics(this, pluginId);
+
+        new UpdateChecker(this);
         
         saveDefaultConfig();
         this.messageManager = new MessageManager(this);
