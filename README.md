@@ -92,6 +92,10 @@ Make sure that **PlaceholderAPI** is installed to use the **AdvancedTags** plugi
 ## ⚖️ License
 Licensed under CC BY-NC 4.0 (Attribution-NonCommercial 4.0 International).
 Commercial use and resale are strictly prohibited
+---
+<div align="center">
+  <sub>Built with ❤️ for developers and creators worldwide.</sub>
+</div>
 
 ## Statistics
 
